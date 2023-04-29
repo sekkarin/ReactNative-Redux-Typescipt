@@ -1,0 +1,12 @@
+{
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true,
+        // "source.fixAll.eslint": false
+    },
+    // "editor.formatOnSave": true,
+    // "[typescript]": {
+    //     "editor.defaultFormatter": "esbenp.prettier-vscode",
+    //     "editor.formatOnSave": true
+    // },
+    "files.eol": "\n"
+}
