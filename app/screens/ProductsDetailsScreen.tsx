@@ -6,16 +6,20 @@ import {
   ScrollView,
 } from 'react-native';
 import React from 'react';
-import {product as getProduct} from '../data/produect';
+// import {product as getProduct} from '../data/produect';
 import {Image} from 'react-native';
 import {Button} from '@rneui/themed';
+import { useDispatch, useSelector } from 'react-redux';
+import { cartSlice } from '../store/cartSlicec';
 
 const ProductsDetailsScreen = () => {
   const {width} = useWindowDimensions();
-  const product = getProduct[0];
+  const product =useSelector((state) => state.products.selectedProduct)
+  const dispatch = useDispatch()
 
   const addToCart = () => {
-    console.log('Add to cart');
+    // console.log('Add to cart');
+    dispatch(cartSlice.actions.addCartItem({product}))
   };
   return (
     <View>
@@ -59,7 +63,7 @@ const ProductsDetailsScreen = () => {
         titleStyle={{fontSize: 16}}
         buttonStyle={{borderRadius: 100, backgroundColor: 'black'}}
         // background={}
-        title={'Hello'}
+        title={'Add Cart'}
       />
     </View>
   );

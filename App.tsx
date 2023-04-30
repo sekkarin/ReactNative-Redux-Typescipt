@@ -6,14 +6,24 @@
  */
 
 import React from 'react';
-import {ProductsScreen} from './app/screens';
-import ProductsDetailsScreen from './app/screens/ProductsDetailsScreen';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
+import {ThemeProvider} from '@rneui/themed';
+import Navigation from './app/navigation/navigation';
+import {Provider} from 'react-redux'
+import { store } from './app/store';
 function App(): JSX.Element {
   return (
-    <>
-      {/* <ProductsScreen /> */}
-      <ProductsDetailsScreen />
-    </>
+    <SafeAreaProvider>
+      <Provider store={store}>
+      <ThemeProvider>
+        {/* <SafeAreaProvider>...</SafeAreaProvider>; */}
+        {/* <ProductsScreen /> */}
+        {/* <ProductsDetailsScreen /> */}
+        {/* <ShoppingCart /> */}
+        <Navigation></Navigation>
+      </ThemeProvider>
+      </Provider>
+    </SafeAreaProvider>
   );
 }
 
